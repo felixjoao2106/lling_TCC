@@ -1,0 +1,12 @@
+const express = require('express');
+const cors = require('cors');
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.use('/uploads', express.static(__dirname + '/../../uploads'));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/photographers', require('./routes/photographers'));
+app.use('/api/services', require('./routes/services'));
+app.use('/api/schedules', require('./routes/schedules'));
+module.exports = app;
